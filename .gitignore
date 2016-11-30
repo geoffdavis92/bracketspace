@@ -1,3 +1,5 @@
 # bracketspace ignores... 
 node_modules 
-app/node_modules/
+app/node_modules/ 
+.sass-cache 
+.DS_Store

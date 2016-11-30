@@ -1,9 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+import App from './App'
+import Setup from './Setup/view'
+import Bracket from './Bracket/view'
+import Stats from './Stats/view'
+
+import './css/critical.css'
+
+render((
+	<Router history={browserHistory}>
+		<Route path='/' component={App}>
+			<Route path="/setup" component={Setup}/>
+			<Route path="/bracket" component={Bracket}/>
+			<Route path="/stats" component={Stats}/>
+		</Route>
+	</Router>
+	),
+	document.querySelector('#root'));

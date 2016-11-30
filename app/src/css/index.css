@@ -1,0 +1,11 @@
+ul.inline {
+  list-style-type: none;
+}
+ul.inline li {
+  display: inline-block;
+}
+ul.inline li:not(:last-of-type) {
+  margin-right: 1em;
+}
+
+/*# sourceMappingURL=index.css.map */
