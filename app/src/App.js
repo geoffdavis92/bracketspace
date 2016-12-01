@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import RouteList from './Utils/routes'
+import http from './utils/http'
+import RouteList from './utils/routes'
 import './css/index.css'
 /**
  * @class
@@ -9,28 +10,37 @@ import './css/index.css'
  * @description Container for all views
  */
 export default class App extends Component {
-	constructor(props) {
-		super(props);
+	componentDidMount() {
+		window.http = http
 	}
 	render() {
 		const navRoutes = RouteList.map((route,i) => {
 			const currentPath = location.pathname,
 				  navProps = {
 				  	className: currentPath === route.path ? 'navlink active' : 'navlink'
+				  },
+				  linkProps = {
+				  	to: route.disabled ? null : route.path,
+				  	'data-disabled': route.disabled ? true : null
 				  }
 			return (
-				<li key={i} {...navProps} ><Link to={route.path}>{route.name}</Link></li>
+				<li key={i} {...navProps} ><Link {...linkProps}>{route.name}</Link></li>
 				)
 		})
 		return (
 			<main>
-				<nav id="site">
-					<ul className='inline'>
-						{navRoutes}
-					</ul>
-					{/*<Breadcrumbs source={routes}/>*/}
-				</nav>
-				{this.props.children}
+				<header>
+					<h3><Link to='/'>BracketSpace</Link></h3>
+					<nav id="site">
+						<ul className='inline'>
+							{navRoutes}
+						</ul>
+						{/*<Breadcrumbs source={routes}/>*/}
+					</nav>
+				</header>
+				<section>
+					{this.props.children}
+				</section>
 			</main>
 		)
 	}

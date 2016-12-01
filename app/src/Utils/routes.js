@@ -7,11 +7,13 @@ const RouteList = [
 	{
 		name: 'MyBracket',
 		path: '/bracket',
+		disabled: true,
 		children: []
 	},
 	{
 		name: 'Stats',
 		path: '/stats',
+		disabled: true,
 		children: []
 	}
 ]

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAEC,WAAE;EACD,OAAO,EAAE,CAAC",
-"sources": ["../../../sass/components/Nav.sass"],
+"mappings": "AAAA,IAAI;EACH,WAAW,EAAE,oBAAmB;;;AAGhC,OAAO;EACN,KAAK,EAAE,cAAc;;AACtB,QAAQ;EACP,KAAK,EAAE,cAAc;;;ACLtB,WAAE;EACD,OAAO,EAAE,CAAC",
+"sources": ["../../../sass/parts/type.sass","../../../sass/components/Nav.sass"],
 "names": [],
 "file": "critical.css"
 }
