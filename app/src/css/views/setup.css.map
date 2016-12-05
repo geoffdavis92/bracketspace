@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": ";AAGE,6BAAQ;EACP,OAAO,EAAE,UAAU",
+"sources": ["../../../../sass/views/setup.sass"],
 "names": [],
 "file": "setup.css"
 }

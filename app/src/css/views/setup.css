@@ -1,4 +1,8 @@
 /* SETUP.css */
+#view-setup form input:before {
+  content: attr(name);
+}
+
 /* END SETUP.css */
 
 /*# sourceMappingURL=setup.css.map */

@@ -8,17 +8,17 @@ export default class http {
 		this.method = !options ? 'GET' : options.method ? options.method : 'GET'
 		this.data = !options ? {} : options.data ? options.data : {}
 	}
-	get(callback) {
+	get(callback:Function):Promise {
 		let queryStr = '?';
 		for(let key in this.data) {
-			queryStr += `${key}=${this.data[key]}&`
+			if (key) { queryStr += `${key}=${this.data[key]}&` }
 		}
-		queryStr=queryStr.replace(/\&$/,'');
+		queryStr=queryStr.replace(/&$/,'');
 		const xhr = new XMLHttpRequest(),
-			  method = 'GET',
-			  url = this.href,
+			  method:string = 'GET',
+			  url:string = this.href,
 			  promise = new Promise ((res,rej) => {
-			  	xhr.open(method,url,true);
+			  	xhr.open(method,`${url}${queryStr}`,true);
 				xhr.onreadystatechange = () => {
 					if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 						return res(xhr.responseText)
@@ -34,10 +34,10 @@ export default class http {
 			return promise;
 		}
 	}
-	post(callback) {
+	post(callback:Function):Promise {
 		const xhr = new XMLHttpRequest(),
-			  method = 'GET',
-			  url = this.href,
+			  method:string = 'POST',
+			  url:string = this.href,
 			  promise = new Promise ((res,rej) => {
 			  	xhr.open(method,url,true);
 				xhr.onreadystatechange = () => {
@@ -47,7 +47,7 @@ export default class http {
 						return rej('404 Error')
 					}
 				};
-				xhr.send();
+				xhr.send(this.data);
 			});
 		if (callback) {
 			return promise.then(data => callback(data), e => { throw e; })
