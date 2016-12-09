@@ -1,4 +1,3 @@
-// @flow
 export default class http {
 	href: string;
 	method: string;
