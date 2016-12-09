@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "app/src/index.js",
   "scripts": {
-    "build": "cd app; run build; cd build; server php 22022; cd -;"
+    "build": "cd app; run build; cd build; server php 22022; cd ../../;"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
