@@ -77,7 +77,7 @@ const colors = theme.getColors('nationalPark'),
 			}
 		},
 		stack: {
-			colorScale: extractValues(theme.getColors('warm')).reverse()
+			colorScale: extractValues(theme.getColors('retroSummer')).reverse()
 		}
 	})
 
@@ -90,7 +90,7 @@ export default class Home extends Component {
 					<Victory domain={{x: [1,16], y:[0,160]}} domainPadding={25} theme={myTheme}>
 						<Axis tickValues={wvXAxis}/>
 						<Axis dependentAxis/>
-						<Stack colorStack={'default'}>
+						<Stack colorStack={true}>
 							<Bar data={websiteVisitors} x='week' y='visitors'/>
 							<Bar data={websiteVisitors2} x='week' y='visitors'/>
 						</Stack>
